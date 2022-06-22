@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\PushHistory;
 use App\Services\Api\V1\FCMClient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -38,9 +39,18 @@ class SendOneJob implements ShouldQueue
     {
         Redis::throttle(env('APP_NAME'))->allow(2)->every(1)->then(function() {
 
-            $result = Http::withHeaders($this->clientSet['header'])->post($this->clientSet['fcmUrl'], $this->clientSet['body']);
+            try{
+                $result = Http::withHeaders($this->clientSet['header'])->post($this->clientSet['fcmUrl'], $this->clientSet['body']);
 
-
+                PushHistory::create([
+                    'client_id' => $this->clientSet['client_id'],
+                    'push_id' => $this->clientSet['push_id'],
+                    'token' => $this->clientSet['token'],
+                    'status' => $result->status(),
+                ]);
+            } catch (\Exception $e){
+                Log::error($this->clientSet['token'].':::'.$e->getMessage());
+            }
         }, function () {
             $this->release(2);
         });
