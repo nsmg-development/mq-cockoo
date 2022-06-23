@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\ResponseTemplate;
 use App\Services\Api\V1\AuthService;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Laravel\Passport\Http\Controllers\AccessTokenController;
 use Laravel\Passport\TokenRepository;
 use Lcobucci\JWT\Parser as JwtParser;
 use League\OAuth2\Server\AuthorizationServer;
-use Nyholm\Psr7\Response as Psr7Response;
 use Psr\Http\Message\ServerRequestInterface;
 
 class AuthController extends AccessTokenController
@@ -28,10 +25,12 @@ class AuthController extends AccessTokenController
      * @param JwtParser $jwt
      * @param AuthService $authService
      */
-    public function __construct(AuthorizationServer $server,
-                                TokenRepository $tokens,
-                                JwtParser $jwt,
-                                AuthService $authService)
+    public function __construct(
+        AuthorizationServer $server,
+        TokenRepository $tokens,
+        JwtParser $jwt,
+        AuthService $authService
+    )
     {
         $this->authService = $authService;
 

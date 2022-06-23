@@ -11,17 +11,20 @@ class DefaultRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return get_client_id();
+        return !!get_client_id();
     }
 
     /**
      * Get the validation rules that apply to the request.
+     * tokens: 수신자 fcm토큰 목록
+     *      token: 수신자 fcm 토큰.
+     * 제목, 본문
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             "tokens" => "required|array",

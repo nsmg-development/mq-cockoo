@@ -3,11 +3,16 @@
 namespace App\Services\Api\V1;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 use Psr\Http\Message\ServerRequestInterface;
 
 class AuthService
 {
+    /**
+     * 새 토큰 발급전 기존 토큰 삭제
+     *
+     * @param ServerRequestInterface $request
+     * @return void
+     */
     public function pruneOldTokens(ServerRequestInterface $request)
     {
         $oauthClient = DB::table('oauth_clients')

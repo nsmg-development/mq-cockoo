@@ -3,9 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\PushHistory;
-use App\Services\Api\V1\FCMClient;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,6 +12,10 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
+/**
+ * 1명씩 발송을 위해 기존에 만든 로직
+ * 현재는 쓰지 않고 일부 변경된 내용 있으므로 사용전 검토 필요
+*/
 class SendOneJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;

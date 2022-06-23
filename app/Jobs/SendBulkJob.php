@@ -4,8 +4,8 @@ namespace App\Jobs;
 
 use App\Models\PushHistory;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Redis\LimiterTimeoutException;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Http\Client\Pool;
 use Illuminate\Queue\InteractsWithQueue;
@@ -22,6 +22,8 @@ class SendBulkJob implements ShouldQueue
 
     /**
      * Create a new job instance.
+     * params [ fcm 발송을 위한 endpoint, 헤더, 본문 ]
+     * params + [ 내역 저장을 위한 수신자목록, 클라이언트 아이디, 푸시 본문 내역 ID ]
      *
      * @return void
      */
@@ -34,6 +36,7 @@ class SendBulkJob implements ShouldQueue
      * Execute the job.
      *
      * @return void
+     * @throws LimiterTimeoutException
      */
     public function handle()
     {

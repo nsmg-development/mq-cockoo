@@ -12,11 +12,18 @@ class SendController extends Controller
 {
     private SendService $sendService;
 
+    /**
+     * @param SendService $sendService
+     */
     public function __construct(SendService $sendService)
     {
         $this->sendService = $sendService;
     }
 
+    /**
+     * @param DefaultRequest $request
+     * @return Response
+     */
     public function sendDefault(DefaultRequest $request): Response
     {
         return $this->response($this->sendService->sendDefault($request));
