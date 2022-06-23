@@ -3,18 +3,18 @@
 namespace App\Jobs;
 
 use App\Models\PushHistory;
-use App\Services\Api\V1\FCMClient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Http\Client\Pool;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
-class SendOneJob implements ShouldQueue
+class SendBulkJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -40,16 +40,28 @@ class SendOneJob implements ShouldQueue
         Redis::throttle(env('APP_NAME'))->allow(100)->every(10)->then(function() {
 
             try{
-                $result = Http::withHeaders($this->clientSet['header'])->post($this->clientSet['fcmUrl'], $this->clientSet['body']);
+
+                $results = Http::pool(fn (Pool $pool) => array_map(function($body) use ($pool) {
+                    return $pool->withHeaders($this->clientSet['header'])
+                        ->post($this->clientSet['fcmUrl'], $body);
+                }, $this->clientSet['bodies']));
+
+                $statuses = [];
+                foreach ($results as $idx => $result) {
+                    $statuses[] = [
+                        'token' => $this->clientSet['tokens'][$idx],
+                        'status' => $result->status(),
+                    ];
+                }
 
                 PushHistory::create([
                     'client_id' => $this->clientSet['client_id'],
                     'push_id' => $this->clientSet['push_id'],
-                    'token' => $this->clientSet['token'],
-                    'status' => $result->status(),
+                    'status' => json_encode($statuses),
                 ]);
+
             } catch (\Exception $e){
-                Log::error($this->clientSet['token'].':::'.$e->getMessage());
+                Log::error($e->getMessage());
             }
 
         }, function () {

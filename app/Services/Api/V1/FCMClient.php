@@ -99,4 +99,22 @@ class FCMClient
             ],
         ];
     }
+
+    public function getBulkBody(array $tokens)
+    {
+        $bodies = [];
+
+        foreach ($tokens as $token) {
+            $body = [
+                "message" => [
+                    "token" => $token,
+                    "notification" => $this->notification,
+                ],
+            ];
+
+            $bodies[] = $body;
+        }
+
+        return $bodies;
+    }
 }

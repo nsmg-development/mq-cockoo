@@ -17,8 +17,9 @@ class CreatePushHistoriesTable extends Migration
             $table->id();
             $table->foreignId('client_id')->constrained('oauth_clients')->cascadeOnDelete();
             $table->foreignId('push_id')->constrained('pushes')->cascadeOnDelete();
-            $table->string('token')->comment('fcm token');
-            $table->unsignedSmallInteger('status')->comment('status code');
+//            $table->string('token')->comment('fcm token');
+//            $table->unsignedSmallInteger('status')->comment('status code');
+            $table->json('status')->comment('tokens and status codes');
             $table->timestamps();
         });
     }

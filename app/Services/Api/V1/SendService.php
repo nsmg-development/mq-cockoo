@@ -4,6 +4,7 @@ namespace App\Services\Api\V1;
 
 
 use App\Http\Requests\Api\V1\DefaultRequest;
+use App\Jobs\SendBulkJob;
 use App\Jobs\SendOneJob;
 use App\Models\Push;
 use Illuminate\Support\Collection;
@@ -32,17 +33,19 @@ class SendService
             'body' => $request->get('body'),
         ]);
 
-        foreach ($request->get('tokens') as $token) {
+//        foreach ($request->get('tokens') as $token) {
             $param = [
                 'fcmUrl'    => $this->client->getFcmUrl(),
                 'header'    => $this->client->getHeader(),
-                'body'      => $this->client->getBody($token),
-                'token' => $token,
+//                'body'    => $this->client->getBody($token),
+                'bodies'    => $this->client->getBulkBody($request->get('tokens')),
+//                'token' => $token,
+                'tokens' => $request->get('tokens'),
                 'client_id' => $clientId,
                 'push_id'   => $push->id,
             ];
-            SendOneJob::dispatch($param);
-        }
+            SendBulkJob::dispatch($param);
+//        }
 
         return collect([]);
     }
