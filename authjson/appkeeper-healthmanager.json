@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "appkeeper-healthmanager",
+  "private_key_id": "0223b0c9af6a5e45fdc0625c58fc62c1a99d8fc2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDp6pwNec7F8YWA\neuM9Nurt9um1Z9Wp0F/6yNJeOx0m7RfHBKUEk4bjzgJyOvHQsF5XIQJADAB3yYJf\nuZ8WKFUB1DL/+qmSsi8bQgKmwRcLmnWClhqFRN8sKwqvPb/8gqSP7Hf/umrWheZ8\n/6EQZPVjeB6Vi6aLEN5s9AoDfGLM2Vb29mTWFvohNH2nrffuoso3b/7wiKlXtQ0n\nQRUKNuoDJdee0fRooaukrPQPu2J4Js2WswRPpPp1iLg+caCxg5osUZYp8nUrsxVV\nbEMw8c3dGtUuE2GUxoBVLuRlIS6H6cF9pTEYezZLUu9/K6mn+FZlJubC8iSW0SMZ\nxsmm27A5AgMBAAECggEASx6nT+KSx1m5VFnimRmGV7ZoNnQqlzbOY/TTLiTQx1vz\nu1uf/Pi9pHHXskSAvNKu8U8t8FCKY+2oO0Kattxr9ELnv/IJPA2R+DB6NoAi/Px1\nCWNYD/1eqEoIS9/KRHbWD0xS+yKsRclJjFHxsRii/3cnZ0IqUVWxAI9cmeL7vanf\nNjWThx6GnqL3lnJS3VVlr/6qySv7VTkyYxD62KDbgQTlU98TXgPlxn6j4kR4vwTB\n3qgR+Z/bnu1zKp6w4SKQBvyzhDCk4Uk/bMN3cCMxHQzWPf+vBvxGgJOCtmy6WFY4\ngKcjGU03VvAwEwdywqW5pCnEkXEVSMQdrunNBFusiwKBgQD8dBmUgCKvFfTQZC+p\nWWuoaAaI++zFnJdLZEQSa3T1ATVyVwhGy91XYutHc4NXVgAi0W0ic/Dx+vSKUwxD\nLM9v4TAxGprklKPZIH69qtBznra+nbJbArAQbm+zw6luvrogxa2Pqq0nUkMYcehH\nOnBdLL8mPLpelzNpLB9XMZQgCwKBgQDtM9g8yJU1M8t7WgJZwM/5ChD60FJkLOly\nO7T/PlKWB7GRE/2TvUn8FB0m0xWXEBs8FVo2RuPyyzjlnMwAVFq5hlDCcmTXKGA0\nj9PJgsP2v8NUyeCBXylKbvEeJ7SR1lovFQ8tF2plEIf2AWEQ6zYMbYyFBhXUDJoX\nCjbbKoIHSwKBgEl+ZyADOZWtF6s/L1zmyl+pgRWJ+cEBuE3bb7HJFLBq3KtfyOoL\nWXGiO4p+h2L6h2mbfGEGTcO0YlKOoMhBmFYiwYvaCfO3jgec3SjMPIkcUGknsY+r\nNaRi8iPsNzwlTDxUMBXeAzCqUxwftRZfXezSJQe1sC/vZqkcjjctGMlHAoGBAIEa\nVLlQmxVn6Xpr1RewwAFWH0PEGvP3FeBc6vh5nU2XRmgmL0A4KIqREATPotKjq48a\nOA2OrAa74W3n14jeYLrVhiMvS/9nNGWnWqg1Ch/E47XEYvNHLhwbIhU9myQ9PLyf\ng7ERK5FyW+3jdkdVHgfJoE/OrhbJ/RxJLO5AxqDdAoGBALDZbtNfk873q8uUpKP+\nAyho1/JBrLUqohP5TvWI/RUYsPjw2FqmxOnRIyLfWGPrbOo6v0ny7NVY2rbmECjr\nR0g/25z12fhH8wv7Xwwv0YM+vnCv9UXKI9BnVz6EzSPT20vHoLNIsZMRRB6WoHFA\n4ntVf63nbqe5ixcH2KxfmMvN\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-kkc29@appkeeper-healthmanager.iam.gserviceaccount.com",
+  "client_id": "108383631891190528902",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-kkc29%40appkeeper-healthmanager.iam.gserviceaccount.com"
+}
