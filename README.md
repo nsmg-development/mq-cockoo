@@ -1,64 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 설치
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### required
+- php7.4
+- mysql
+- redis
 
-## About Laravel
+### download
+```
+git clone git@github.com:nsmg-development/mq-cockoo.git
+cd mq-cockoo
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### dependency install
+```
+composer install
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### configuration
+- .env 
+  - APP_ENV : local : production
+  - APP_URL : real
+  - DB...
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### migrate
+- OAuth와 내역 저장용
+```
+php artisan migrate
+```
 
-## Learning Laravel
+### valet
+```
+valet park
+valet link
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 클라이언트 준비
 
-## Laravel Sponsors
+### FCM 준비 -> 뻐꾸기 시스템에 전달
+- API Auth Json 파일
+  - 🏠 프로젝트 개요 -> ⚙️ 프로젝트 설정 -> 클라우드메시징 탭 -> ⋮ google cloud console에서 api 관리
+  - 구글 api 및 서비스 -> OAuth 2.0 클라이언트 ID -> 웹클라이언트 다운로드 -> json 파일
+    - 없으면 생성
+- project id
+  - 🏠 프로젝트 개요 -> ⚙️ 프로젝트 설정 -> 일반 탭 -> 내 프로젝트 섹션 -> 프로젝트 id
+  
+### 클라이언트 생성
+```
+php artisan passport:client --client
+>> name?
+PROJECT-ID ClientCredentials Grant Client 
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### FCM Auth JSON 위치
+- base-path / authjson / PROJECT-ID.json
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# Login - get Access Token
+- https://app-url.com/api/v1/token
+- GET
+- header
+  - ```
+    "Accept" : "application/json"
+    ```
+- body
+  - ```
+    {
+        "grant_type" : "client_credentials",
+        "client_id" : 4,
+        "client_secret" : "X5UP2Offg9yaAjSFkf8pwIyrungpQtCJG0EIorc5",
+        "scope" : ""
+    }
+    ```
+  - 위 client 생성 command로 생성된 id, secret 삽입
+  - grant type과 scope는 고정
 
-## Contributing
+# Request - push 발송
+- https://app-url.com/api/v1/push/sendDefault
+- POST
+  - header
+  - ```
+    "Accept" : "application/json"
+    "Authorization" : "Bearer 로그인으로 획득한 토큰"
+    ```
+- body
+  - ```
+    {
+      "tokens": [,
+          "cYGiHUnoTgq0iNQuzIY9mB:APA91bFJGCJ8bhuA_SHI_hdqqYzhpszahsZD7x6AVca3QeNWVT14Yvf_LHh7csZP58cv9TTS5NxCcvO9X4Ap0hppk7aJgpXAsY8wGypu17NJflsLo4nHKsiVlf93Afry-ESQxXp11111",
+          "wawevrwfwefUHKnkjnOIJOm4324KJNLKszcYGiHUnoTgq0iNQuzIY9mB:APfdsfeahsZD7x6AVca3QeNWVT14Yvf_LHh7csZP58cv9TTS5NxCcvO9X4Ap0hppiVlf93Afry-1k7aJgpXAsY8wGypu17NJflsLo4nHKs",
+          // ... 
+          "cYGiHUnoTgq0iNQuzIY9mB:APA91bFXAsY8wGypu17NJflsLo4nHKsiVlf93Afry-ESQxXp1111JGCJ8bhuA_SHI_hdqqYzhpszahsZD7x6AVca3QeNWVT14Yvf_LHh7csZP58cv9TTS5NxCcvO9X4Ap0hppJKNlk7h",
+          "Y8wGypu17NJflsLo4nHKsiVlf93Afry-ESQxXp11111cYGiHUnoTgq0iNQuzIY9mB:APA91bFJGCJ8bhuA_SHI_hdqqYzhpszahsZD7x6AVca3QeNWVT14Yvf_LHh7csZP58cv9TTS5NxCcvO9X4Ap0hppk7aJgpXAs"
+      ],
+      "title": "여기에 푸시 제목을",
+      "body": "여기에 푸시 내용을 너무 길지 않게 작성"
+    }
+    ```
+  - 받는 사람 FCM 토큰 배열, 제목, 내용 JSON 전송
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

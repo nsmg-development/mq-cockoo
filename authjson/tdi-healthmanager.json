@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tdi-healthmanager",
+  "private_key_id": "3ca0586657bce8f2ac866949723ea7c3a5fa0f70",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDYxo9rrorB/XkP\nAgriv/nm+fCz1A6xVmapQdCDtMkXZ6L2N3VmgnLgqzNkL6Kz3RXb3aIJslqT/lhY\ndIxfjgdMsgnc1oEyi6AnCCqa6qjtsyKSZSDoZhAW8sZhfGoCEoLrUqF5f0P7nble\nqcJyVbEWuk+J3OCuGo32MCy23Yd9aTjsRc4j/+EP2xIbb6xlVHsNFPCHy+s5jKsl\nMA+19vSGWuiHjOBJ8QmC8Yl8Z7ixJfCET5D8BfXfiWT/iShs1SO8kPbflyDXBZHk\nXrmIfPfn1f13hFPPusAgFRZ4aOBhs8CsCX8EG94Un6kKhrWkYlaDHGJL0GN/DhR9\nOalTMZzPAgMBAAECggEAWGhihaAhpwwhGyXSGrgAy1qT+EM72sdKBy14RL6uZIU3\nyQLFNpFtGIO56dojmQdJqumw9BNxLXpFvY2K0k2yXG0f6JjzCBI5trF17shVLNwp\n9VqZGS7G0RUiIxACi+XQzvhcMpjcuPmSaDEDxG1+U66YUblrSJY733O2SL4AS/yl\nmkzxKLVbYNmTSoIG3in4vw2NbJhlVHWVhZdVLnTlFQz5aY5tWJ8ZL2YA7TQWcWQU\nmoPzY15XR5XYb7zilrTuk1V3orzZt3eKtfNfIn+XWfVx1bV+bRVSSsTKWDFv1Hjm\nHlyT+owuYMCtiRBSX6vGOnAKqYjzIBq2xyXJ0ZwcAQKBgQD0cZYBpzICY+cKYsU0\nUK4HZ7m8MvolWrDasSKgIejUGXW6aAeH7mYjDthr+zlBOc+lh6ikcNK+dsgry/Wx\nfhNIm3NPzSSWdDhisFlrEpJrbdbM+2HJNMREYGFXhn0nBSG7Y8mDYyaZVu3yOe5j\nnvijMp5MpitmYxL4k65Og4UhQQKBgQDjBh4alvJ08rTGoPAu+tHoaSVywlXuNGtj\nYyYVB7y35FT9LLOi6++RCEvWSlj1OttUu0li7xnUH+nB2EQi/sa1lMdsJXvYk9Qi\n5As8A8JNtPOBmWlg+VPRLvf3+2LME+yQqv38yVZXiw4P6V1wv1Hj/NX/8opHbJwb\nNHBMGvAqDwKBgDjhXXiRAVAREygVh7H+vCA5AL1MV2ztx417/oSon1cLfZucrXPy\nA45Q3Ad0dAQ7gZgREysAnel4Fmgqk8dzgOU6VwDQyZzA+oXsZ0JFFhEtg/g63qxF\nPQ50JvKI9wJnbUv/klqibc7srX3aASDpUw4Wr0NCv4KZt0ZkhwD6FbaBAoGARGJK\nXR4M6JdXRuGhl7Ur14McqaXKNpeJpYVvKjSLbyUTSLPXZIMHRbunBGSeyTeya6KC\np494S0JVqnNXiucNuhKXw4bC+GkHJH9mtuw28itIkkhAytovmjo4rXUGvIxf3O/0\n09ld7b7QPJDB+b1XkIJPf+pyJrObjkJMdVBD+ZcCgYAa8dn1aFOOhkTOsl0BijNH\nEhwaKVT3Uz8KR4mClxtVHVCE+5HKYvoQ+0b/oFrAaXpH8CN4VQzch+4ttGkFHItt\neC/sK24FZDj2iZIIP2UsPsXyDKyzELqtB4KxyDNMR91EyDz6aDaFdIln6vsLMWn/\nHZL+okBFMe2k/jkzBcIaNw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-dv9g8@tdi-healthmanager.iam.gserviceaccount.com",
+  "client_id": "107987408740626587466",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-dv9g8%40tdi-healthmanager.iam.gserviceaccount.com"
+}
