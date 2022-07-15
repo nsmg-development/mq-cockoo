@@ -51,6 +51,9 @@ class SendBulkJob implements ShouldQueue
 
                 $statuses = [];
                 foreach ($results as $idx => $result) {
+
+                    Log::info($result);
+
                     $statuses[] = [
                         'token' => $this->clientSet['tokens'][$idx],
                         'status' => $result->status(),

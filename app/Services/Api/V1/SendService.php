@@ -47,6 +47,7 @@ class SendService
             'client_id' => $clientId,
             'push_id'   => $push->id,
         ];
+
         SendBulkJob::dispatch($param);
 
         return collect([]);

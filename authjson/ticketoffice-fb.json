@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ticketoffice-fb",
+  "private_key_id": "e0be555b17981acc8258843450bcf9a352d497c3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCNihLOB38f1/G3\nltYz+8SchDyfbTFo3giBjT5RNml8GPyNELu0b1TLdA0KXcwqPT3Zj5jWriOjBtip\nsCP36uyJMpJ3piv+cUfVNneGrKfGcIluMntvDAaXo6Q5ji2vfI84tUz//jRSry8K\nW+RR2ehP4Uza+vsL1Ke3CVkUEzCFXU8FGj9DDY4wy7sQSmAF19vp6NjKbac/hk94\nasbKXov8AEiyiWK3Lje+Io1cb33wzoVMi8i3JbrHfFHXtmqrQOY7TB1HTxhbK1FI\nu94QFllWGX7PbuTmsPFg3reiC3JEcOvA/D6KOkGwaFbkBc4mlKIBf49z2u5oyJl+\nRadV00w/AgMBAAECggEADFyu38fP1pwpxHssIkYvGeyCzvneguZBn+8SLk2uUORt\nynRXsJ64rTxplyoyFs5ahJICK13yRt7mNYvo2FJwbls4Z7LfzM1gFMM5FU4nKTHT\nDwjhtwU53iywv0Ynv1gFulI7c3BkaYRbe3AjNPLvU2q+J7IcEyBztYzfdt1mM3+d\nkVR7yeWYHyqWP0lgwFM34fLgXhw+pSvYRkCN6zjzhHW5ak4yXV3WJlXzjERXmkxE\nRWV35UK2KP/wadB6Pux1mRZG7CVFIg8CUctZrL0yZBmEYmOyd9pet0XSOkHtvzqH\nBIYGWrTLB7ThuXWqOCmD8bZNz6+QH5EcqmuPDF3IoQKBgQDCCax2jpBJCAqp1K+z\njlYSa9yon5b8GkOitKqB6P40pBM0BKPdTAMbAVmsdX48fc5Nhv9JlfXqPwZLDxDP\nnSR9XdVqzlPY5iHyem9047vb9qF5q9DaB8utQ5Gw5Ht4LkKFinWpmABpkRwvSnw9\ngsbIw5t+aAsHMxwbBVsWwbdCnQKBgQC6vLk6YFivY6stxbqD9c8PkT62S4ySZQPR\nWDKTbPc07q4Gi5Dfmge2ZrsyvLpXKAygLChB00AeuTSqkvAz2+YuTAbjBh8mFX/2\nHadQTX/q+mWSeJbZKGJg192B0TvlSHBPtu0jrCML+s6BestpvNyDaAKADS6MMMnS\nkwZoJsRViwKBgBYtyuPGSeG/JJDi+a5Zb6ctYwx3KWfpjJ+VbQPqYNwdgQBqI1zR\nKm20ys42o9ZAPwuHibichn5e89Yyg6ZnfNtDlXhe2yCotWqk6gZ/XWK4Hx7sL7Qs\nPfCxD38brq0/BGWFPQvEjw+CAam6JtdVEmmyShy5wcDx651/EDlarRrVAoGARl7C\nSq5uHUIpCum9fOcP7aTlhhr4UV7Bzo03GflxO0BK0mqb4LeR+nnCR795VUjhYSbi\n0NOEEU/n+fO/kztmBcJewgTXjimB/ER2fbuG3g0YY9cPuawPTsFqVvZ7ZM8ki9W6\njbvbxTLxyTd2GlWyn859SrYs+WWVWMZRHsSlLjsCgYA5HxiZgPZUeuZ55e+Elx0H\nvKtyvfy+pDge/S4SP8hUZKGt67MhKiIZLx2Hty6fIGPpyM59mpTtZd3SWpUHzgBb\nr+yt7+nBTeUvCaMy3O5pw07qWyIVxGSpTKNPcZW6r8xdOhbGY5552h6n+ArrJVZB\nkUgV0w8uEpvxKh3I5ABQaw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ohnpx@ticketoffice-fb.iam.gserviceaccount.com",
+  "client_id": "116227211050185643336",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ohnpx%40ticketoffice-fb.iam.gserviceaccount.com"
+}
