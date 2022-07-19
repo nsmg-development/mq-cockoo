@@ -4,6 +4,7 @@ namespace App\Services\Api\V1;
 
 
 use App\Http\Requests\Api\V1\DefaultRequest;
+use App\Http\Requests\Api\V1\EachRequest;
 use App\Jobs\SendBulkJob;
 use App\Models\Push;
 use Illuminate\Support\Collection;
@@ -28,7 +29,6 @@ class SendService
      */
     public function sendDefault(DefaultRequest $request): Collection
     {
-
         $clientId = get_client_id();
         $this->client->client($clientId);
         $this->client->setNotification($request->get('title'), $request->get('body'));
@@ -44,6 +44,33 @@ class SendService
             'header'    => $this->client->getHeader(),
             'bodies'    => $this->client->getBulkBody($request->get('tokens')),
             'tokens'    => $request->get('tokens'),
+            'client_id' => $clientId,
+            'push_id'   => $push->id,
+        ];
+
+        SendBulkJob::dispatch($param);
+
+        return collect([]);
+    }
+
+    public function sendEach(EachRequest $request): Collection
+    {
+        $clientId = get_client_id();
+        $this->client->client($clientId);
+
+        $data = $request->get('pushes');
+
+        $push = $this->push->create([
+            'client_id' => $clientId,
+            'title'     => $data[0]['title']." and etc",
+            'body'      => $data[0]['body']." and etc",
+        ]);
+
+        $param = [
+            'fcmUrl'    => $this->client->getFcmUrl(),
+            'header'    => $this->client->getHeader(),
+            'bodies'    => $this->client->getEachBody($data),
+            'tokens'    => collect($data)->pluck('token')->toArray(),
             'client_id' => $clientId,
             'push_id'   => $push->id,
         ];
