@@ -193,4 +193,25 @@ class FCMClient
 
         return $bodies;
     }
+
+    public function getEachBody($data)
+    {
+        $bodies = [];
+
+        foreach ($data as $d) {
+            $body = [
+                "message" => [
+                    "token" => $d['token'],
+                    "notification" => [
+                        'title' => $d['title'],
+                        'body' => $d['body'],
+                    ],
+                ],
+            ];
+
+            $bodies[] = $body;
+        }
+
+        return $bodies;
+    }
 }
